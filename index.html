@@ -4,46 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Testimony Tuesdays | Be Unapologetic Podcast</title>
-    
-    <!-- Open Graph / Social Media Meta Tags (WhatsApp, Facebook, LinkedIn) -->
+
+    <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="Testimony Tuesdays | Be Unapologetic Podcast">
     <meta property="og:description" content="Anointed in fire. Purified by Living Water. Unshaken in His Truth. Share your testimony securely with us.">
     <meta property="og:image" content="https://github.com/Cleo876/testimony-tuesday/blob/main/images/Be%20Unapologetic%20Logo%20Original.png?raw=true">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:type" content="website">
-    
+
     <!-- Twitter Card Meta Tags -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Testimony Tuesdays | Be Unapologetic Podcast">
     <meta name="twitter:description" content="Anointed in fire. Purified by Living Water. Unshaken in His Truth. Share your testimony securely with us.">
     <meta name="twitter:image" content="https://github.com/Cleo876/testimony-tuesday/blob/main/images/Be%20Unapologetic%20Logo%20Original.png?raw=true">
-    
-    <!-- Playfair Display for elegant, authoritative titles. Inter for highly legible inputs/body text. -->
+
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome for standard icons -->
+
+    <!-- FontAwesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
-    <!-- Tailwind CSS Setup -->
-    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com">
+    </script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        crimson: {
-                            50: '#fdf2f2',
-                            100: '#fbe5e5',
-                            500: '#ef4444',
-                            600: '#dc2626',
-                            700: '#b91c1c', 
-                            800: '#991b1b', 
-                            900: '#7f1d1d', 
+                        burnt: {
+                            50: '#fff9f5',
+                            100: '#ffeedc',
+                            200: '#ffd6b3',
+                            300: '#faba6b',
+                            400: '#d46600',
+                            500: '#b05500',
+                            600: '#8f4400',
+                            680: '#7a3a00', // Custom tone between 600 and 700
+                            700: '#723600',
+                            800: '#5a2a00',
+                            900: '#462100',
                         },
                         brand: {
                             black: '#111111',
-                            offwhite: '#fafafa', 
+                            offwhite: '#fafafa',
                         }
                     },
                     fontFamily: {
@@ -72,7 +77,7 @@
         body {
             background-color: #fafafa;
             color: #111111;
-            overflow-x: hidden; 
+            overflow-x: hidden;
         }
 
         .premium-input {
@@ -86,15 +91,17 @@
             outline: none;
             font-family: 'Inter', sans-serif;
             font-size: 0.95rem;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
         }
-        
+
         .premium-input:focus {
-            border-color: #991b1b;
-            box-shadow: 0 0 0 4px rgba(153, 27, 27, 0.1);
+            border-color: #b05500;
+            box-shadow: 0 0 0 4px rgba(176, 85, 0, 0.12);
         }
-        
-        .premium-input::placeholder { color: #9ca3af; }
+
+        .premium-input::placeholder {
+            color: #9ca3af;
+        }
 
         #success-overlay {
             opacity: 0;
@@ -109,140 +116,149 @@
             z-index: 50;
         }
 
-        #form-wrapper { transition: opacity 0.4s ease; }
+        #form-wrapper {
+            transition: opacity 0.4s ease;
+        }
 
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
-        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
-        
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+
         .iframe-container {
             width: 100%;
             border-radius: 0.75rem;
             overflow: hidden;
             background: #ffffff;
             border: 1px solid #e5e7eb;
-            box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col lg:flex-row font-sans relative">
 
-    <!-- LEFT PANEL: Brand Info -->
-    <aside class="w-full lg:w-5/12 xl:w-2/5 bg-gradient-to-br from-crimson-800 to-crimson-900 text-white p-8 sm:p-12 lg:p-14 xl:p-16 flex flex-col justify-between relative overflow-hidden shrink-0">
-        
-        <div class="absolute top-0 right-0 -mr-20 -mt-20 w-80 h-80 bg-crimson-600 rounded-full blur-[80px] opacity-30 pointer-events-none"></div>
-        <div class="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-black rounded-full blur-[80px] opacity-20 pointer-events-none"></div>
+    <!-- ===== LEFT PANEL ===== -->
+    <!-- 3-tone gradient: from-burnt-500 via-burnt-600 to-burnt-680 -->
+    <aside class="w-full lg:w-5/12 xl:w-2/5 bg-gradient-to-br from-burnt-500 via-burnt-600 to-burnt-680 text-white p-6 sm:p-12 lg:p-14 xl:p-16 flex flex-col justify-between relative overflow-hidden shrink-0">
 
+        <!-- Abstract glow orbs – using burnt-400 and burnt-500 for luminous depth -->
+        <div class="absolute top-0 right-0 -mr-16 -mt-16 w-72 h-72 bg-burnt-400 rounded-full blur-[90px] opacity-30 pointer-events-none"></div>
+        <div class="absolute bottom-0 left-0 -ml-16 -mb-16 w-72 h-72 bg-burnt-500 rounded-full blur-[90px] opacity-25 pointer-events-none"></div>
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-burnt-300 rounded-full blur-[120px] opacity-10 pointer-events-none"></div>
+
+        <!-- Content -->
         <div class="relative z-10 flex-grow">
             <!-- Tag -->
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 rounded-full text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-10 border border-white/20 backdrop-blur-sm shadow-sm w-max">
-                <i class="fa-solid fa-microphone-lines text-crimson-100"></i> Testimony Tuesdays
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 bg-white/15 rounded-full text-[10px] sm:text-xs font-bold tracking-widest uppercase mb-10 border border-white/25 backdrop-blur-sm shadow-sm w-max">
+                <i class="fa-solid fa-microphone-lines text-burnt-100"></i> Testimony Tuesdays
             </div>
-            
-            <!-- Scalable Title -->
-            <h1 class="font-serif font-bold leading-[1.05] mb-8 tracking-tight">
-                <span class="block text-5xl sm:text-6xl lg:text-7xl mb-1">Be</span>
-                <!-- Clamp ensures it stretches properly on all screens but never breaks into multiple lines -->
-                <span class="block italic font-light text-crimson-100 whitespace-nowrap text-[clamp(2.25rem,8.5vw,5.5rem)] lg:text-[clamp(2.75rem,5.5vw,5.5rem)]">Unapologetic.</span>
-            </h1>
-            
-            <div class="w-16 h-1.5 bg-crimson-500 mb-8 rounded-full"></div>
 
-            <!-- Authentic Slogan -->
-            <p class="text-white text-lg sm:text-xl leading-relaxed mb-6 font-semibold tracking-wide border-l-4 border-crimson-500 pl-4">
+            <!-- Title -->
+            <h1 class="font-serif font-bold leading-[1.05] mb-8 tracking-tight flex flex-col">
+                <span class="text-5xl sm:text-6xl lg:text-7xl mb-1">Be</span>
+                <span class="italic font-light text-burnt-100 whitespace-nowrap text-[clamp(2rem,11vw,5.5rem)] sm:text-[clamp(2.75rem,8.5vw,5.5rem)] lg:text-[clamp(2.75rem,5.5vw,5.5rem)]">Unapologetic.</span>
+            </h1>
+
+            <!-- Divider – using burnt-300 for a warm, bright accent -->
+            <div class="w-16 h-1.5 bg-burnt-300 mb-8 rounded-full"></div>
+
+            <!-- Slogan – border now uses burnt-300 for softer contrast -->
+            <p class="text-white text-lg sm:text-xl leading-relaxed mb-6 font-semibold tracking-wide border-l-4 border-burnt-300 pl-4">
                 Anointed in fire. Purified by Living Water. Unshaken in His Truth.
             </p>
 
-            <p class="text-crimson-100 text-sm sm:text-base leading-relaxed opacity-90 font-light mb-12 max-w-sm">
-                Hosted by <strong>Cleon Williams</strong> & <strong>Shaisty Hibbert</strong>. Share your testimony securely below to be featured on our <strong>end-of-month</strong> episode to encourage and uplift the body of Christ. Feel free to share whenever you have a testimony you want to share.
+            <p class="text-burnt-100 text-sm sm:text-base leading-relaxed opacity-90 font-light mb-12 max-w-sm">
+                Hosted by <strong>Cleon Williams</strong> &amp; <strong>Shaisty Hibbert</strong>. Share your testimony securely below to be featured on our <strong>end-of-month</strong> episode to encourage and uplift the body of Christ. Feel free to share whenever you have a testimony you want to share.
             </p>
-            
-            <!-- Animated Audio Wave -->
-            <div class="flex items-end justify-between w-full h-8 opacity-40 mb-10 lg:mb-0">
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-1"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-3"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-2"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-5"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-4"></div>
-                
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-1"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-4"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-2"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-5"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-3"></div>
-                
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-1"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-5"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-2"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-4"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-3"></div>
-                
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-1"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-3"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-5"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-2"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-4"></div>
-                
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-1"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-4"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-2"></div>
-                <div class="w-1.5 bg-white rounded-t-sm animate-wave-5"></div>
+
+            <!-- Animated Wave Bars -->
+            <div class="flex items-end justify-between w-full h-8 opacity-50 mb-10 lg:mb-0">
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-1"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-3"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-2"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-5"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-4"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-1"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-4"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-2"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-5"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-3"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-1"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-5"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-2"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-4"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-3"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-1"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-3"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-5"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-2"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-4"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-1"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-4"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-2"></div>
+                <div class="w-1.5 bg-white/90 rounded-t-sm animate-wave-5"></div>
             </div>
         </div>
 
-        <!-- Footer / External Links -->
-        <div class="relative z-10 mt-8 pt-8 border-t border-white/10 flex flex-col gap-4">
+        <!-- Footer / Links -->
+        <div class="relative z-10 mt-8 pt-8 border-t border-white/15 flex flex-col gap-4">
             <div>
-                <p class="text-[10px] uppercase tracking-widest text-crimson-200 font-bold mb-1">Listen On All Platforms</p>
+                <p class="text-[10px] uppercase tracking-widest text-burnt-200 font-bold mb-1">Listen On All Platforms</p>
             </div>
-            
-            <!-- Flex container with wrap to gracefully handle all the platform icons on any screen -->
             <div class="flex flex-wrap items-center gap-2.5 sm:gap-3">
-                <a href="https://rss.com/podcasts/be-unapologetic-podcast/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all shadow-sm" title="Listen on RSS.com">
+                <a href="https://rss.com/podcasts/be-unapologetic-podcast/" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/15 flex items-center justify-center border border-white/20 hover:bg-white/25 hover:-translate-y-1 transition-all shadow-sm" title="Listen on RSS.com">
                     <i class="fa-solid fa-rss text-xs sm:text-sm text-white"></i>
                 </a>
-                <a href="https://podcasts.apple.com/us/podcast/be-unapologetic-podcast/id1807198997" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Apple Podcasts">
+                <a href="https://podcasts.apple.com/us/podcast/be-unapologetic-podcast/id1807198997" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/15 flex items-center justify-center border border-white/20 hover:bg-white/25 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Apple Podcasts">
                     <i class="fa-brands fa-apple text-xs sm:text-sm text-white"></i>
                 </a>
-                <a href="https://open.spotify.com/search/Be%20Unapologetic%20Podcast" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Spotify">
+                <a href="https://open.spotify.com/show/2U1kjBJVzypVEOpFLxlcfh" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/15 flex items-center justify-center border border-white/20 hover:bg-white/25 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Spotify">
                     <i class="fa-brands fa-spotify text-xs sm:text-sm text-white"></i>
                 </a>
-                <a href="https://music.amazon.com/podcasts/4817e296-1971-431e-992a-1059162e4ce3" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Amazon Music">
+                <a href="https://music.amazon.com/podcasts/4817e296-1971-431e-992a-1059162e4ce3" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/15 flex items-center justify-center border border-white/20 hover:bg-white/25 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Amazon Music">
                     <i class="fa-brands fa-amazon text-xs sm:text-sm text-white"></i>
                 </a>
-                <a href="https://castamatic.com/itunes/1807198997" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Castomatic">
+                <a href="https://castamatic.com/itunes/1807198997" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/15 flex items-center justify-center border border-white/20 hover:bg-white/25 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Castomatic">
                     <i class="fa-solid fa-tower-broadcast text-xs sm:text-sm text-white"></i>
                 </a>
-                <a href="https://podcastindex.org/podcast/7286897" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Podcast Index">
+                <a href="https://podcastindex.org/podcast/7286897" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/15 flex items-center justify-center border border-white/20 hover:bg-white/25 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Podcast Index">
                     <i class="fa-solid fa-magnifying-glass-chart text-xs sm:text-sm text-white"></i>
                 </a>
-                <a href="https://castbox.fm/vic/1807198997" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Castbox">
+                <a href="https://castbox.fm/vic/1807198997" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/15 flex items-center justify-center border border-white/20 hover:bg-white/25 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Castbox">
                     <i class="fa-solid fa-cube text-xs sm:text-sm text-white"></i>
                 </a>
-                <a href="https://overcast.fm/itunes1807198997" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Overcast">
+                <a href="https://overcast.fm/itunes1807198997" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/15 flex items-center justify-center border border-white/20 hover:bg-white/25 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Overcast">
                     <i class="fa-solid fa-cloud text-xs sm:text-sm text-white"></i>
                 </a>
-                <a href="https://curiocaster.com/podcast/pi7286897" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Curiocaster">
+                <a href="https://curiocaster.com/podcast/pi7286897" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/15 flex items-center justify-center border border-white/20 hover:bg-white/25 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Curiocaster">
                     <i class="fa-solid fa-compass text-xs sm:text-sm text-white"></i>
                 </a>
-                <a href="https://api.podverse.fm/api/v1/podcast/podcastindex/7286897" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Podverse">
+                <a href="https://api.podverse.fm/api/v1/podcast/podcastindex/7286897" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/15 flex items-center justify-center border border-white/20 hover:bg-white/25 hover:-translate-y-1 transition-all shadow-sm" title="Listen on Podverse">
                     <i class="fa-solid fa-globe text-xs sm:text-sm text-white"></i>
                 </a>
-                <a href="https://link.podlp.app/ff4143d8-87a3-56e1-ab84-c9b2299a9146" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 flex items-center justify-center border border-white/20 hover:bg-white/20 hover:-translate-y-1 transition-all shadow-sm" title="Listen on PodLP">
+                <a href="https://link.podlp.app/ff4143d8-87a3-56e1-ab84-c9b2299a9146" target="_blank" rel="noopener noreferrer" class="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/15 flex items-center justify-center border border-white/20 hover:bg-white/25 hover:-translate-y-1 transition-all shadow-sm" title="Listen on PodLP">
                     <i class="fa-solid fa-mobile text-xs sm:text-sm text-white"></i>
                 </a>
             </div>
         </div>
     </aside>
 
-    <!-- RIGHT PANEL: Form Interface -->
+    <!-- ===== RIGHT PANEL: Form ===== -->
     <main class="w-full lg:w-7/12 xl:w-3/5 p-6 sm:p-12 lg:p-16 xl:p-20 relative flex flex-col justify-center min-h-screen lg:min-h-0 bg-brand-offwhite">
-        
+
         <div id="form-wrapper" class="w-full max-w-2xl mx-auto flex flex-col">
-            
+
+            <!-- Header with Logo -->
             <div class="mb-10 flex flex-col items-center text-center gap-4">
-                <!-- Podcast Logo Added Here -->
                 <img src="https://github.com/Cleo876/testimony-tuesday/blob/main/images/Season%203%20Devotion%20Cover.png?raw=true" alt="Be Unapologetic Logo" class="w-32 h-32 sm:w-40 sm:h-40 rounded-[1.25rem] shadow-[0_8px_24px_rgba(0,0,0,0.12)] border border-gray-100 object-cover shrink-0 mb-2 transition-transform hover:scale-105 duration-300">
                 <div>
                     <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brand-black mb-2">Share Your Story</h2>
@@ -250,57 +266,52 @@
                 </div>
             </div>
 
-            <!-- Target Form Action updated as requested -->
+            <!-- Form -->
             <form id="submission-form" action="https://docs.google.com/forms/d/e/1FAIpQLSdgpddYLhAS9bmINU4zpvWumP09JqxZhl0EbIpBQzUqHjBkAg/formResponse" method="POST" class="flex flex-col gap-8 flex-grow">
-                
-                <!-- Input: Full Name (Optional) -->
+
+                <!-- Name (Optional) -->
                 <div>
                     <label class="block text-xs font-bold text-gray-700 uppercase tracking-widest mb-2 ml-1">Full Name <span class="text-gray-400 font-normal tracking-normal normal-case">(Optional)</span></label>
                     <input type="text" name="entry.212561828" placeholder="e.g. Jane Doe" class="premium-input max-w-md">
                 </div>
 
-                <!-- Hidden Input: Testimony Link (Mandatory, populated by JS) -->
+                <!-- Hidden: Testimony Link (populated by JS) -->
                 <input type="hidden" name="entry.662936870" id="testimony-link-input">
-                
-                <!-- Hidden Input: Date (Mandatory, populated by JS) -->
+
+                <!-- Hidden: Date (populated by JS) -->
                 <input type="hidden" name="entry.2126044837" id="submission-date-input">
 
-                <!-- Audio Upload Area (Increased height to prevent scrollbars) -->
+                <!-- Audio Upload -->
                 <div class="bg-gray-50/80 p-5 sm:p-6 rounded-2xl border border-gray-200 shadow-sm relative">
                     <label class="flex items-center gap-2 text-xs font-bold text-gray-800 uppercase tracking-widest mb-4 ml-1">
-                        <i class="fa-solid fa-cloud-arrow-up text-crimson-700"></i> Your Testimony Audio <span class="text-crimson-700">*</span>
+                        <i class="fa-solid fa-cloud-arrow-up text-burnt-500"></i> Your Testimony Audio <span class="text-burnt-500">*</span>
                     </label>
-                    
+
                     <div class="iframe-container">
-                        <iframe
-                          id="drive-uploader"
-                          src="https://drive-drop-maker.lovable.app/embed/1d208d6a-ceca-4a86-95fa-05c636d6dae4"
-                          style="width:100%;height:330px;border:0"
-                          allow="clipboard-read; clipboard-write; microphone"
-                        ></iframe>
+                        <iframe id="drive-uploader" src="https://drive-drop-maker.lovable.app/embed/1d208d6a-ceca-4a86-95fa-05c636d6dae4" style="width:100%;height:330px;border:0" allow="clipboard-read; clipboard-write; microphone"></iframe>
                     </div>
                     <p class="text-[11px] text-gray-500 mt-4 flex items-center gap-2 ml-1">
                         <i class="fa-solid fa-shield-halved text-gray-400"></i> Audio is securely processed and delivered.
                     </p>
                 </div>
 
-                <!-- Error Message Banner -->
-                <div id="error-message" class="hidden bg-red-50 text-crimson-800 p-4 rounded-xl text-sm border border-red-100 flex items-start gap-3 shadow-sm">
+                <!-- Error Banner -->
+                <div id="error-message" class="hidden bg-orange-50 text-burnt-800 p-4 rounded-xl text-sm border border-orange-100 flex items-start gap-3 shadow-sm">
                     <i class="fa-solid fa-circle-exclamation mt-0.5"></i>
                     <span id="error-text" class="leading-relaxed">An error occurred.</span>
                 </div>
 
-                <!-- Submit Action -->
+                <!-- Submit -->
                 <div class="mt-2 pt-6 border-t border-gray-200">
-                    <button id="master-submit-btn" type="submit" disabled class="w-full bg-crimson-800 hover:bg-crimson-700 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-white font-bold tracking-wide py-4 sm:py-5 rounded-xl transition-all shadow-[0_8px_20px_-6px_rgba(153,27,27,0.4)] hover:shadow-[0_12px_25px_-6px_rgba(153,27,27,0.5)] flex items-center justify-center gap-3 text-sm sm:text-base">
-                        <i id="btn-icon" class="fa-solid fa-lock"></i> 
+                    <button id="master-submit-btn" type="submit" disabled class="w-full bg-burnt-500 hover:bg-burnt-600 disabled:bg-gray-200 disabled:text-gray-400 disabled:cursor-not-allowed disabled:transform-none disabled:shadow-none text-white font-bold tracking-wide py-4 sm:py-5 rounded-xl transition-all shadow-[0_8px_20px_-6px_rgba(176,85,0,0.4)] hover:shadow-[0_12px_25px_-6px_rgba(176,85,0,0.55)] flex items-center justify-center gap-3 text-sm sm:text-base">
+                        <i id="btn-icon" class="fa-solid fa-lock"></i>
                         <span id="btn-text">Please attach audio first</span>
                     </button>
                 </div>
             </form>
         </div>
 
-        <!-- Success Overlay with specific requested text -->
+        <!-- Success Overlay -->
         <div id="success-overlay" class="absolute inset-0 bg-brand-offwhite flex flex-col items-center justify-center p-8 sm:p-12 text-center z-[-1]">
             <div class="w-24 h-24 bg-green-50 text-green-600 rounded-full flex items-center justify-center text-4xl mb-6 shadow-inner border border-green-100 relative">
                 <div class="absolute w-2 h-2 bg-green-400 rounded-full -top-2 right-4"></div>
@@ -308,19 +319,20 @@
                 <div class="absolute w-2 h-2 bg-green-500 rounded-full bottom-4 -left-3"></div>
                 <i class="fa-solid fa-check"></i>
             </div>
-            
+
             <h2 class="text-3xl sm:text-4xl font-serif font-bold text-brand-black mb-4">Praise God!</h2>
             <p class="text-gray-600 mb-8 max-w-md mx-auto leading-relaxed font-light">
                 Your testimony has been securely received by our team. Thank you for sharing your experience and being unapologetic about His truth.
             </p>
-            
+
             <button onclick="location.reload()" class="px-8 py-3.5 bg-white border border-gray-200 hover:border-gray-300 hover:bg-gray-50 text-gray-800 rounded-xl font-semibold transition-all text-sm shadow-sm flex items-center gap-2">
                 <i class="fa-solid fa-arrow-rotate-left"></i> Submit Another
             </button>
         </div>
-        
+
     </main>
 
+    <!-- ===== JAVASCRIPT ===== -->
     <script>
         const form = document.getElementById('submission-form');
         const masterBtn = document.getElementById('master-submit-btn');
@@ -331,8 +343,7 @@
         const errorText = document.getElementById('error-text');
         const formWrapper = document.getElementById('form-wrapper');
         const successOverlay = document.getElementById('success-overlay');
-        
-        // Hidden Inputs
+
         const testimonyLinkInput = document.getElementById('testimony-link-input');
         const submissionDateInput = document.getElementById('submission-date-input');
 
@@ -340,19 +351,19 @@
 
         let filesStaged = false;
         let isProcessing = false;
-        let pendingFormSubmission = false; // Tracks if we are waiting to push text to Google Forms
+        let pendingFormSubmission = false;
 
-        // --- STEP 1: Listen to the Iframe Widget Events ---
+        // --- Listen to iframe events ---
         window.addEventListener('message', (e) => {
             if (e.data?.widgetId !== WIDGET_ID) return;
 
-            // Handle when user stages a file
+            // User staged / removed a file
             if (e.data.type === 'iframe-uploader:files-changed') {
                 filesStaged = e.data.count > 0;
-                
+
                 if (!isProcessing) {
                     masterBtn.disabled = !filesStaged;
-                    if(filesStaged) {
+                    if (filesStaged) {
                         btnText.innerText = 'Submit Testimony Securely';
                         btnIcon.className = 'fa-solid fa-paper-plane';
                     } else {
@@ -362,11 +373,10 @@
                 }
             }
 
-            // Handle Successful Upload from Iframe: Extract the Drive URL
+            // Upload complete – extract the Drive URL
             if (e.data.type === 'iframe-uploader:uploaded') {
                 console.log('Audio file verified in Drive:', e.data.file);
-                
-                // Intelligently parse whatever file object format the widget returns
+
                 let fileRef = e.data.file;
                 let extractedUrl = '';
 
@@ -377,15 +387,13 @@
                 } else if (fileRef.id) {
                     extractedUrl = `https://drive.google.com/file/d/${fileRef.id}/view`;
                 } else {
-                    // Fallback to filename tracking if a strict URL wasn't returned
                     extractedUrl = `File Securely Processed: ${fileRef.name || 'Unknown Media'}`;
                 }
-                
-                // Populate the mandatory hidden url input
+
                 testimonyLinkInput.value = extractedUrl;
             }
 
-            // Handle Upload Errors
+            // Upload error
             if (e.data.type === 'iframe-uploader:error') {
                 console.error('Drive Upload failed:', e.data.filename, e.data.message);
                 showError("Audio Upload Failed: " + e.data.message);
@@ -393,19 +401,19 @@
                 pendingFormSubmission = false;
             }
 
-            // End of Iframe process -> Move onto Google Forms Text Data
+            // Iframe finished its job → proceed to Google Forms
             if (e.data.type === 'iframe-uploader:submit-complete') {
-                if(pendingFormSubmission) {
+                if (pendingFormSubmission) {
                     console.log("Audio process complete. Transmitting text metadata...");
                     executeGoogleFormSubmission();
                 }
             }
         });
 
-        // --- STEP 2: Intercept Button Click to Start the Chain ---
+        // --- Intercept form submit ---
         form.addEventListener('submit', (e) => {
-            e.preventDefault(); 
-            
+            e.preventDefault();
+
             errorBox.classList.add('hidden');
 
             if (!filesStaged) {
@@ -413,55 +421,54 @@
                 return;
             }
 
-            // Lock the UI
+            // Lock UI
             isProcessing = true;
             pendingFormSubmission = true;
             masterBtn.disabled = true;
-            masterBtn.classList.remove('bg-crimson-800', 'hover:bg-crimson-700');
+            masterBtn.classList.remove('bg-burnt-500', 'hover:bg-burnt-600');
             masterBtn.classList.add('bg-gray-800');
             btnIcon.className = 'fa-solid fa-spinner fa-spin';
             btnText.innerText = 'Uploading Audio (1/2)...';
 
-            // Command the iframe to push its staged files to your Google Drive
-            iframe.contentWindow.postMessage(
-                { type: 'iframe-uploader:submit', widgetId: WIDGET_ID },
-                '*'
-            );
+            // Tell iframe to push staged files to Drive
+            iframe.contentWindow.postMessage({
+                type: 'iframe-uploader:submit',
+                widgetId: WIDGET_ID
+            }, '*');
         });
 
-        // --- STEP 3: Push Text & Audio Links to Google Forms Background URL ---
+        // --- Push text data to Google Forms ---
         function executeGoogleFormSubmission() {
             btnText.innerText = 'Saving Details (2/2)...';
 
-            // Populate the mandatory Date field in YYYY-MM-DD format as required by Google Form's native date types
+            // Set today's date (YYYY-MM-DD)
             submissionDateInput.value = new Date().toISOString().split('T')[0];
 
-            // Re-cache form data now that hidden inputs (URL & Date) are fully populated
             const finalFormData = new FormData(form);
 
             fetch(form.action, {
-                method: 'POST',
-                mode: 'no-cors', // Bypasses CORS blocks for headless google form transmission
-                body: finalFormData
-            })
-            .then(() => {
-                triggerSuccessUI();
-            })
-            .catch((error) => {
-                console.error('Google Form Submission Error:', error);
-                showError("Your audio was saved, but a network error prevented saving your name. You're still good to go!");
-                resetButtonState();
-            });
+                    method: 'POST',
+                    mode: 'no-cors',
+                    body: finalFormData
+                })
+                .then(() => {
+                    triggerSuccessUI();
+                })
+                .catch((error) => {
+                    console.error('Google Form Submission Error:', error);
+                    showError("Your audio was saved, but a network error prevented saving your name. You're still good to go!");
+                    resetButtonState();
+                });
         }
 
-        // --- Helper Functions ---
+        // --- Helpers ---
         function triggerSuccessUI() {
             formWrapper.style.opacity = '0';
             formWrapper.style.pointerEvents = 'none';
-            
+
             setTimeout(() => {
                 successOverlay.classList.add('active');
-                window.scrollTo({ top: 0, behavior: 'smooth' }); // Send mobile user to top
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }, 300);
         }
 
@@ -473,12 +480,13 @@
         function resetButtonState() {
             isProcessing = false;
             masterBtn.disabled = !filesStaged;
-            masterBtn.classList.add('bg-crimson-800', 'hover:bg-crimson-700');
+            masterBtn.classList.add('bg-burnt-500', 'hover:bg-burnt-600');
             masterBtn.classList.remove('bg-gray-800');
-            
+
             btnIcon.className = filesStaged ? 'fa-solid fa-paper-plane' : 'fa-solid fa-lock';
             btnText.innerText = filesStaged ? 'Try Again' : 'Please attach audio first';
         }
     </script>
+
 </body>
 </html>
